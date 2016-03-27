@@ -37,3 +37,63 @@ ul {
     background: white;
     border-radius: 12px;
 }
+
+.post {
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.post-title {
+    text-transform: uppercase;
+}
+
+.author-info {
+    font-size: 14px;
+}
+
+footer {
+    background: white;
+    border-top: 1px solid #000000;
+}
+
+footer .col-md-3 {
+    padding: 40px;
+}
+
+.social {
+    padding-left: 40px;
+}
+
+.social li {
+    float: left;
+    margin-left: 20px;
+}
+.social li:first-child {
+    margin-left: 0px;
+}
+
+.social i {
+    color: gray;
+    font-size: 36px;
+}
+
+.social i:hover {
+    color: black;
+}
+
+.error-messages {
+    display: none;
+}
+.error .error-messages {
+    color: red;
+    display: block;
+}
+
+
+
+@media (max-width: 600px) {
+    .post {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}

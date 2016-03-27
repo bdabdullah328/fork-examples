@@ -48,17 +48,10 @@
                 <button type="submit" class="btn btn-default">Submit</button>
               </form>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">Sign In</a></li>
+                <li>
+                    <a href="#">Sign Up </a></li>
+                  
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -76,6 +69,7 @@
                 <section class="col-md-8 main-section">
                     
                 </section>
+                
                 <aside class="col-md-4"><i class="fa fa-rss">
                     </i>RSS FEEDS
                     <div>Categories</div>
@@ -91,9 +85,113 @@
             </div>
         </article>
     </main>
-    <footer></footer>
+    <footer>
+       <div class="row">
+        <div class="col-md-3">
+            <h4>Dribble</h4>
+            <p>Show and tell for designers</p>
+            <p>What are you working on? Dribbble is a community of designers sharing screenshots of their work, process, and projects.</p>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="">Item</a></li>
+                        <li><a href="">Item</a></li>
+                        <li><a href="">Item</a></li>
+                        <li><a href="">Item</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="">Item</a></li>
+                        <li><a href="">Item</a></li>
+                        <li><a href="">Item</a></li>
+                        <li><a href="">Item</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="">Item</a></li>
+                        <li><a href="">Item</a></li>
+                        <li><a href="">Item</a></li>
+                        <li><a href="">Item</a></li>
+                    </ul>    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">3</div>
+        <div class="col-md-3">4</div>
+        </div>
+        <ul class="social clearfix">
+            <li><a href="https://facebook.com/" target="a"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+    </footer>
+    
+    <script id="entry-template" type="text/x-handlebars-template">
+     {{#each posts}}
+      <div class="media" data-post="{{id}}">
+          <div class="media-left">
+              <a href="#"><img class="media-object" src="https://d13yacurqjgara.cloudfront.net/users/374290/screenshots/2481718/manila_dribbble_meetup.jpg" alt="..." height="100px" width="100px"></a>
+          </div>
+          <div class="media-body">
+              <span>{{id}}</span>
+              <h4 class="media-heading">{{title}}</h4>
+              <p>{{author}}</p>
+          </div>
+       </div>
+       {{/each}}
+    </script>
+    
+    <script id="post-template" type="text/x-handlebars-template">
+       <div class="post">
+           <h1 class="post-title">{{title}}</h1>
+           <h2 class="author-info">{{author}}</h2>
+           <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus quidem dolor vero beatae deserunt neque explicabo laborum quaerat ratione reiciendis sint, quas, voluptate quod culpa id consectetur aperiam harum perspiciatis!</p>
+
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia nulla, commodi, accusamus mollitia sint modi, atque, deserunt iure in totam voluptatum sunt eius expedita. Error reiciendis obcaecati corrupti quas, natus.</p>
+       </div>
+    </script>
+    
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <form novalidate>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" required>
+            <div class="error-messages">This is required</div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Zip Code</label>
+            <input type="type" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+            <div class="error-messages">This is required</div>
+
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="login">Login</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
     
     <script src="vendor/jquery/jquery-1.12.2.min.js"></script>
+    <script src="vendor/handlebars/handlebars-v4.0.5.js"></script>
     <script src="vendor/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 </body>
