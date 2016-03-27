@@ -1,0 +1,39 @@
+*::selection {
+    background: pink;
+}
+
+body {
+    background: #f4f4f4;
+}
+
+.title-nav {
+    background: url(../images/bg.jpg);
+    margin-top: -20px;
+    //sheight: 130px;
+}
+
+.title-nav h1 {
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.title-nav h1::first-letter {
+    color: red;
+    font-size: 60px;
+}
+
+.uppercase {
+   text-transform: uppercase;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-section {
+    background: white;
+    border-radius: 12px;
+}
