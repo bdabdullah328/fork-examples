@@ -1,4 +1,14 @@
 $(function(){
+    var keyEvent = 'dblclick';
+    $('#login').click(function(){
+        var password = $('#exampleInputPassword1').val();
+        if(!(/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(password))) {
+            $('#exampleInputPassword1').parent('.form-group').find('.error-messages').html("Invalid Zip Code");
+            $('#exampleInputPassword1').parent('.form-group').addClass('error');
+        } else {
+           $('#exampleInputPassword1').parent('.form-group').removeClass('error'); 
+        }
+    });
     var json = {
         name : "Zama khan",
         isTeacher: function() {
@@ -10,15 +20,35 @@ $(function(){
         
         success: function(data) {
             
-            data.forEach(function(post){
-                console.log("ForEach Loop", post);
+                var htmlContent = $("#entry-template").html();
+                //got the content of the script block
+                
+                var template = Handlebars.compile(htmlContent);
+                
+                var html = template({
+                    posts: data
+                });
+                
+               
+                
+                $('.main-section').html(html);
+                
+                $('.media').on('click', function(){
+                    var postId = $(this).data('post');
+                    $.ajax({
+                        url: 'http://localhost:3000/posts/' + postId,
+                        success: function(data) {
+                            var htmlContent = $("#post-template").html();
+                            //got the content of the script block
 
+                            var template = Handlebars.compile(htmlContent);
+
+                            var html = template(data);
+                            $('.main-section').html(html);
+                        }
+                    })
+                });
                 
-                var contentOfPost = '<div class="media"><div class="media-left"><a href="#"><img class="media-object" src="https://d13yacurqjgara.cloudfront.net/users/374290/screenshots/2481718/manila_dribbble_meetup.jpg" alt="..." height="100px" width="100px"></a></div><div class="media-body"><span>'+ post.id +'</span><h4 class="media-heading">'+ post.title +'</h4><p>'+ post.author+ '</p></div></div>';
-                
-                $('.main-section').append(contentOfPost);
-                
-            })
         },
         complete: function(data){
             console.log("Failure")
