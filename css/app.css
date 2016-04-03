@@ -89,6 +89,13 @@ footer .col-md-3 {
     display: block;
 }
 
+.valid-messages {
+    display: none;
+}
+.valid .valid-messages {
+    color: green;
+    display: block;
+}
 
 /*Media Query <IE9*/ 
 @media (max-width: 600px) {
