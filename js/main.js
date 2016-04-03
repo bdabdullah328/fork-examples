@@ -1,4 +1,7 @@
+"use strict";
+
 $(function(){
+    var nameOfPerson = 'Zama'; 
     var keyEvent = 'dblclick';
     $('#login').click(function(){
         var password = $('#exampleInputPassword1').val();
@@ -8,7 +11,13 @@ $(function(){
         } else {
            $('#exampleInputPassword1').parent('.form-group').removeClass('error'); 
         }
+        return false;
     });
+    
+    
+
+    
+    
     var json = {
         name : "Zama khan",
         isTeacher: function() {

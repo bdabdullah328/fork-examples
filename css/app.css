@@ -90,7 +90,7 @@ footer .col-md-3 {
 }
 
 
-
+/*Media Query <IE9*/ 
 @media (max-width: 600px) {
     .post {
         margin-left: 0px;
