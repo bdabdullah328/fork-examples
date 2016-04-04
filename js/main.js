@@ -2,6 +2,9 @@
 
 $(function(){
     var nameOfPerson = 'Zama'; 
+    
+    $("#login-form").validationEngine();
+
     /* Sign in event */
     var keyEvent = 'dblclick';
     $('#login').click(function(){
@@ -15,6 +18,29 @@ $(function(){
         }
         return false;
     });    
+    
+    var domains = ['gmail.com', 'aol.com'];
+var secondLevelDomains = ['hotmail']
+var topLevelDomains = ["com", "net", "org"];
+
+var superStringDistance = function(string1, string2) {
+  // a string distance algorithm of your choosing
+}
+
+$('#exampleInputEmail1').on('blur', function() {
+  $(this).mailcheck({
+    domains: domains,                       // optional
+    secondLevelDomains: secondLevelDomains, // optional
+    topLevelDomains: topLevelDomains,       // optional
+    suggested: function(element, suggestion) {
+      $(".suggestion").html("Did you mean" +suggestion.full);
+    },
+    empty: function(element) {
+      // callback code
+    }
+  });
+});
+    
     
     
 
@@ -44,19 +70,23 @@ $(function(){
         }
     });
 
-    $('#confirmInputPassword2').on('keyup', function(){
+    $('#confirmInputPassword2,#exampleInputPassword2').on('keyup', function(){
         var password = $('#exampleInputPassword2').val();
         var confirm_pass = $('#confirmInputPassword2').val();
         if(password===confirm_pass) {
             //$('#confirmInputPassword2').parent('.form-group').find('.error-messages').html("Password Match"); 
             $('#confirmInputPassword2').parent('.form-group').removeClass('error');
             $('#confirmInputPassword2').parent('.form-group').addClass('valid');
-        } else if (password!==confirm_pass){
+        } else if (password !== "" && password!==confirm_pass){
            //$('#confirmInputPassword2').parent('.form-group').removeClass('error'); 
             $('#confirmInputPassword2').parent('.form-group').find('.error-messages').html("Password don't Match");
             $('#confirmInputPassword2').parent('.form-group').addClass('error');
         }
     });
+    
+    //before the click event is here
+                //it doesn't work when it was here
+    
     
     /* End Sign Up event */
 
@@ -84,7 +114,16 @@ $(function(){
                 
                 $('.main-section').html(html);
                 
-                $('.media').on('click', function(){
+            $(".dial").knob();
+            //before the click event was here
+                //it worked when it was here
+            
+            // ..
+            
+            
+            $( ".datepicker" ).datepicker();
+            //$(".js-example-basic-single").select2();
+            $('.media').on('click', function(){
                     var postId = $(this).data('post');
                     $.ajax({
                         url: 'http://localhost:3000/posts/' + postId,
@@ -99,10 +138,12 @@ $(function(){
                         }
                     })
                 });
+            
+            
                 
         },
         complete: function(data){
             console.log("Failure")
         }
-    }); */
+    }); 
 });

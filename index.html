@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="vendor/bootstrap-3.3.6-dist/css/bootstrap.min.css">
     <!--Latest Rendering Engine-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="css/app.css">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="vendor/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="vendor/jQuery-Validation-Engine/css/validationEngine.jquery.css">
+    
+    <link rel="stylesheet" href="css/app.css">
     <!--[if lt IE9]
         <script src="vendor/html5shiv/html5shiv.js"></script>
         <script src="vendor/respond/respond.js"></script>
@@ -140,6 +145,13 @@
     
     <script id="entry-template" type="text/x-handlebars-template">
      {{#each posts}}
+     <input type="text" class="datepicker">
+     <select class="js-example-basic-single" multiple="multiple">
+      <option value="AL">Alabama</option>
+
+      <option value="WY">Wyoming</option>
+    </select>
+     </p>
       <div class="media" data-post="{{id}}">
           <div class="media-left">
               <a href="#"><img class="media-object" src="https://d13yacurqjgara.cloudfront.net/users/374290/screenshots/2481718/manila_dribbble_meetup.jpg" alt="..." height="100px" width="100px"></a>
@@ -148,6 +160,7 @@
               <span>{{id}}</span>
               <h4 class="media-heading">{{title}}</h4>
               <p>{{author}}</p>
+              <input type="text" value="50" class="dial">
           </div>
        </div>
        {{/each}}
@@ -167,16 +180,18 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-     <form>
+     <form id="login-form">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Sign In</h4>
       </div>
       <div class="modal-body">
-        
+        <input value="" type="text" name="creditcard" id="creditcard" />
+<input class="validate[condRequired[creditcard]]" type="text" id="ccv" name="ccv"/>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" required>
+            <input type="email" class="form-control validate[required,custom[email]]" id="exampleInputEmail1" placeholder="Email" required>
+            <div class="suggestion"></div>
             <div class="error-messages">This is required</div>
           </div>
           <div class="form-group">
@@ -219,17 +234,12 @@
             <label for="confirmInputPassword2">Confirm Password</label>
             <input type="password" class="form-control" id="confirmInputPassword2" placeholder="Password" required>
             <div class="error-messages">This is required</div>
-            <div class="valid-messages">Password match</div>
           </div>
         
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-<<<<<<< HEAD
-        <button class="btn btn-primary" id="login">Login</button>
-=======
         <button type="submit" class="btn btn-primary" id="signup">Sign Up</button>
->>>>>>> upstream/master
       </div>
       </form>
     </div>
@@ -239,6 +249,12 @@
     <script src="vendor/jquery/jquery-1.12.2.min.js"></script>
     <script src="vendor/handlebars/handlebars-v4.0.5.js"></script>
     <script src="vendor/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery-ui/jquery-ui.min.js"></script>
+    <script src="vendor/select2/dist/js/select2.min.js"></script>
+    <script src="vendor/mailcheck/src/mailcheck.min.js"></script>
+    <script src="vendor/jQuery-Validation-Engine/js/languages/jquery.validationEngine-en.js"></script>
+    <script src="vendor/jQuery-Validation-Engine/js/jquery.validationEngine.js"></script>
+    <script src="vendor/jQuery-Knob/js/jquery.knob.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
