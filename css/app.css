@@ -97,10 +97,14 @@ footer .col-md-3 {
     display: block;
 }
 
-
+/*Media Query <IE9*/ 
 @media (max-width: 600px) {
     .post {
         margin-left: 0px;
         margin-right: 0px;
     }
+}
+
+.formError .formErrorContent {
+    background: green;
 }
